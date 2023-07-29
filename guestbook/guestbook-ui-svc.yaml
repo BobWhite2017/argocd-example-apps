@@ -3,8 +3,11 @@ kind: Service
 metadata:
   name: guestbook-ui
 spec:
-  ports:
-  - port: 80
-    targetPort: 80
+  ipFamilyPolicy: PreferDualStack
   selector:
     app: guestbook-ui
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer
+
